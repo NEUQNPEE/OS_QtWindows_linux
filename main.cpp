@@ -9,8 +9,13 @@
 #include "application/OS.h"
 #include "OSThread/OSThread.h"
 
+#include "protobufData/MyTest.h"
+
 int main(int argc, char *argv[])
 {
+    MyTest t;
+    t.test();
+
     OSApplication os(argc, argv);
 
     // 创建窗口

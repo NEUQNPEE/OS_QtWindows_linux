@@ -23,6 +23,15 @@ set(PROJECT_SOURCES
         ${TS_FILES}
 )
 
+# # 新增子目录
+# include_directories(
+#     ${PROJECT_SOURCES_DIR}/protobufData
+# )
+
+# add_subdirectory(protobufData)
+
+# link_libraries(protobufData)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(OS_QtWindows
         MANUAL_FINALIZATION
@@ -41,6 +50,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         UI/ui.h
         ui_controller/os_ui_controller.cpp
         OSThread/OSThread.cpp OSThread/OSThread.h
+        protobufData/MyTest.cpp protobufData/MyTest.h protobufData/t1.pb.cc protobufData/t1.pb.h protobufData/t1.proto
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET OS_QtWindows APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -64,7 +74,7 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(OS_QtWindows PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(OS_QtWindows PRIVATE Qt${QT_VERSION_MAJOR}::Widgets protobuf)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
