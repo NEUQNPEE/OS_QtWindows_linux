@@ -13,16 +13,16 @@ void OS_QtWindows::StatusBarRightClicked()
     connect(statusBar, &StatusBar::customContextMenuRequested, [=]()
             {
         // 创建状态栏窗口
-        StatusBarWindow *statusBarWindow = new StatusBarWindow();
+        StatusBarWindow *statusBarWindow = new StatusBarWindow(this);
 
         void (OS_QtWindows::*globalClicked)(QMouseEvent *) = &OS_QtWindows::globalClicked;
         void (StatusBarWindow::*globalMousePressEvent)(QMouseEvent *) = &StatusBarWindow::globalMousePressEvent;
         connect(this, globalClicked, statusBarWindow, globalMousePressEvent);
 
-        int x = statusBar->mapToGlobal(statusBar->rect().topLeft()).x();
-        int y = statusBar->mapToGlobal(statusBar->rect().topLeft()).y() - statusBarWindow->height();
+        // int x = statusBar->mapToGlobal(statusBar->rect().topLeft()).x();
+        // int y = statusBar->mapToGlobal(statusBar->rect().topLeft()).y() - statusBarWindow->height();
 
-        statusBarWindow->move(x, y);
+        // statusBarWindow->move(x, y);
         
         connect(statusBarWindow->taskManagerBtn, &QPushButton::clicked, [=]()
                 {

@@ -1,4 +1,5 @@
 #include "win_window.h"
+#include <QDebug>
 
 WinWindow::WinWindow(QWidget *parent, int x, int y) : QWidget(parent)
 {
@@ -69,6 +70,10 @@ WinWindow::WinWindow(QWidget *parent, int x, int y) : QWidget(parent)
 
 void WinWindow::globalMousePressEvent(QMouseEvent *event)
 {
+    // qDebug() << "win窗口读取坐标";
+    // qDebug() << event->pos();
+    // qDebug() << this->geometry();
+
     // 如果点击的不是窗口内部，就关闭窗口
     if (!this->geometry().contains(event->pos()))
     {

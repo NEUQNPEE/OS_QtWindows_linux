@@ -759,15 +759,15 @@ void OS_QtWindows::resizeEvent(QResizeEvent *event)
 // 展示任务管理器界面的函数
 void OS_QtWindows::showTaskManager()
 {
-    foreach (QWidget *widget, QApplication::topLevelWidgets())
-    {
-        if (widget->windowTitle() == "选项")
-        {
-            widget->close();
-        }
-    }
+    // foreach (QWidget *widget, QApplication::topLevelWidgets())
+    // {
+    //     if (widget->windowTitle() == "选项")
+    //     {
+    //         widget->close();
+    //     }
+    // }
 
-    // 创建任务管理器窗口
+    // 创建任务管理器窗口`
     TaskManagerWidget *taskManagerWindow = new TaskManagerWidget(this);
 
     taskManagerWindow->updateProcessData();
@@ -784,6 +784,7 @@ void OS_QtWindows::showWinWindow()
     // 传入win_btn的位置
     win_window = new WinWindow(this, win_btn->pos().x(), win_btn->pos().y());
 
+    // 连接全局点击事件
     void (OS_QtWindows::*globalLeftClicked)(QMouseEvent *) = &OS_QtWindows::globalLeftClicked;
     void (WinWindow::*globalMousePressEvent)(QMouseEvent *) = &WinWindow::globalMousePressEvent;
     connect(this, globalLeftClicked, win_window, globalMousePressEvent);
