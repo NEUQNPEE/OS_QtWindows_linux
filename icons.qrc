@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/background.jpeg</file>
+        <file>icon/folderPicture.png</file>
+        <file>icon/mycomputer.png</file>
+        <file>icon/shutdown.png</file>
+        <file>icon/textPicture.png</file>
+        <file>icon/TXT.png</file>
+        <file>icon/WLOGO.png</file>
+    </qresource>
+</RCC>
