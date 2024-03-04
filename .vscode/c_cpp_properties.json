@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/niefire/Qt/6.6.2/gcc_64/include/**",
+                "/home/niefire/Qt/6.6.2/gcc_64/lib/**",
+                "/home/niefire/Qt/6.6.2/gcc_64/bin/**"
+            ],
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}
